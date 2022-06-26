@@ -25,8 +25,8 @@ title: 关于我
 
 ## 联系我
 
-- QQ&nbsp;&nbsp;&nbsp;&nbsp;: 1772314831
+- QQ&nbsp;&nbsp;&nbsp;&nbsp;: 2861392420
 
 - Email&nbsp;: [tmaize@qq.com](http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YBQNAQkaBSAREU4DDw0)
 
-- GitHub: [https://github.com/tmaize](https://github.com/tmaize)
+- GitHub: [https://github.com/tmaize](https://github.com/tysunseven)
