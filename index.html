@@ -1,31 +1,57 @@
----
-layout: page
-title: 首页
----
-<div class="page page-index">
-  {% for post in site.posts  -%}
-    {%- capture post_year %}{{ post.date | date: "%Y" }}{% endcapture -%}
-    {%- capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture -%}
-    {%- capture post_next_year %}{{ post.next.date | date: "%Y" }}{% endcapture -%}
-    {%- if forloop.first or post_next_year != post_year -%}
-    <div class="list-post">
-      <h2 id="{{post_year}}">{{post_year}}</h2>
-      <ul>
-    {%- endif %}
-        <li>
-          <span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
-          <div class="title">
-            <a href="{{ site.baseurl | append: post.url }}" class="hover-underline">{{ post.title }}</a>
-          </div>
-          <div class="categories">
-            {% for categorie in post.categories -%}
-            <a href="{{site.baseurl}}/pages/categories.html#{{ categorie }}" class="hover-underline">{{ categorie }}</a>
-            {%- endfor %}
-          </div>
-        </li>
-    {%- if forloop.last or post_previous_year != post_year %}
-      </ul>
-    </div>
-    {%- endif %}
-  {%- endfor %}
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>孙天阳的笔记空间</title>
+</head>
+
+<body>
+<p>欢迎来到孙天阳的笔记空间！</p>
+<p><img src="huangshan.jpg" width="358" height="496" align="texttop" /></p>
+<p>如果本页面的内容侵犯了您的权益，可以通过邮箱或QQ联系我</p>
+<p>如果您在我的笔记中发现任何错误，或者有任何想和我讨论的内容，可以通过邮箱或QQ联系我</p>
+<p>e-mail:<a href="mailto:tysun@mail.ustc.edu.cn">tysun@mail.ustc.edu.cn</a></p>
+<p>QQ:2861392420</p>
+<p>分析</p>
+<p><a href="Analysis.pdf" title="Analysis">Analysis</a>(2021.6.22)</p>
+<p><a href="Real_Analysis.pdf"title="Real_Analysis">Real Analysis</a>(2021.7.13)</p>
+<p><a href="Complex_Analysis.pdf"title="Complex_Analysis">Complex Analysis</a>(2021.6.21)</p>
+<p><a href="Functional_Analysis.pdf" title="Functional_Analysis">Functional Analysis</a>(2022.6.19)</p>
+<p>方程</p>
+<p><a href="Differential_Equation.pdf" title="Differential_equation">Differential Equation I</a>(2021.8.5)</p>
+<p><a href="Differential_Equation_temp.pdf">Differential Equation II</a>(2022.6.19)</p>
+<p>代数</p>
+<p><a href="Linear_Algebra.pdf" title="Linear_algebra">Linear Algebra </a>(2021.12.2)</p>
+<p><a href="Abstract_Algebra.pdf"title="Abstract_Algebra">Abstract Algebra</a>(2021.9.7)</p>
+<p><a href="Lie_Algebra.pdf" title="Lie_Algebra">Lie Algebra</a>(2021.7.30)</p>
+<p>拓扑</p>
+<p><a href="Topology.pdf"title="Topology">Topology</a>(2021.7.14)</p>
+<p>几何</p>
+<p><a href="Differential_Geometry.pdf" title="Differential Geometry">Differential Geometry</a>(2021.12.2)</p>
+<p><a href="Riemannian_Geometry.pdf"title="Riemannian_Geometry">Riemannian Geometry</a>(2022.4.17)</p>
+<p><a href="Riemann_Surface.pdf">Riemann Surface</a>(2022.4.25)</p>
+<p>物理</p>
+<p><a href="Theoretical Machanics for Mathematicians.pdf">Theoretical Machanics for Mathematicians</a>(2022.4.17)</p>
+<p>更新计划：</p>
+<p>1.准备夏令营，随缘整理数分、线代、实分析、复分析、近世代数和微分几何笔记；</p>
+<p>2.Hodge理论.</p>
+<p>常用网址：</p>
+<p><a href="http://staff.ustc.edu.cn/~wangzuoq/Courses">王作勤的课程主页</a></p>
+<p><a href="http://home.ustc.edu.cn/~yx3x/USTCdata.html">章俊彦的个人主页</a></p>
+<p><a href="http://home.ustc.edu.cn/~zkdwzd/">王子达的个人主页</a></p>
+<p><a href="http://home.ustc.edu.cn/~quantumslayer/file/note/Notes_Probability.pdf">杜哲航的概率论笔记</a></p>
+<p><a href="https://sci-hub.hkvisa.net">Sci-Hub</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/85827900">一个极棒的量子力学科普</a></p>
+<p>课程回放：</p>
+<p><a href="Real_Analysis_2020.html">2020年春实分析H（任广斌）网课回放</a></p>
+<p><a href="Abstract_Algebra_2020.html">2020年春近世代数H（陈小伍）网课回放</a></p>
+<p><a href="http://home.ustc.edu.cn/~quantumslayer/file/Blackboard/001143.02.2020SP.html">2020年春概率论（刘党政）网课回放</a></p>
+<p><a href="Differential_Equation_2022.html">2022年春微分方程IIH（麻希南）录像回放</a></p>
+<p><a href="Riemannian_Geometry_2022S.html">2022年春黎曼几何（刘世平）录像回放</a></p>
+<p><a href="Riemann_Surface_2022S.html">2022年春黎曼曲面（许斌）录像回放</a></p>
+<p><a href="Topology_2022S.html">2022年春拓扑学H（王作勤）录像回放</a></p>
+<p>其他链接：</p>
+<p><a href="https://www.tapechat.net/uu/B351X5/TR61AYWN">孙七七的Tape提问箱</a></p>
+<p><a href="http://staff.ustc.edu.cn/~mathsu01/pu/waming.html">中国科大学生数学杂志《蛙鸣》</a></p>
+</body>
+</html>
