@@ -5,7 +5,7 @@
     <title>筛选文件</title>
     <style>
       li.selected, tr.selected {
-        background-color: yellow;
+        
       }
     </style>
 
@@ -327,6 +327,37 @@
     });
   }
 }
+function toggleSelectAll() {
+  const files = document.getElementById("file-list").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+  let isAllSelected = true;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file.style.display === "table-row") {
+      const checkbox = file.querySelector("input[type='checkbox']");
+      if (!checkbox.checked) {
+        isAllSelected = false;
+        break;
+      }
+    }
+  }
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file.style.display === "table-row") {
+      const checkbox = file.querySelector("input[type='checkbox']");
+      checkbox.checked = !isAllSelected;
+      if (!isAllSelected) {
+        file.classList.add("selected");
+      } else {
+        file.classList.remove("selected");
+      }
+    }
+  }
+}
+
+const selectAllBtn = document.createElement("button");
+selectAllBtn.innerText = "全选/取消全选";
+selectAllBtn.addEventListener("click", toggleSelectAll);
+document.body.insertBefore(selectAllBtn, document.getElementById("file-list"));
     </script>
 
   <button onclick="downloadSelected()">下载选中文件</button>
