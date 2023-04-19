@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>文件下载</title>
+  <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+</head>
+<body>
+  <h1>文件下载</h1>
+
+  <input type="checkbox" id="file1" name="file" value="trial.docx">
+  <label for="file1">文件1</label>
+
+  <input type="checkbox" id="file2" name="file" value="一.docx">
+  <label for="file2">文件2</label>
+
+  <input type="checkbox" id="file3" name="file" value="%E4%B8%80.docx">
+  <label for="file3">文件3</label>
+
+  <br><br>
+
+  <button id="download-btn">下载所选文件</button>
+
+  <script>
+    var downloadBtn = document.getElementById('download-btn');
+    downloadBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      var files = document.querySelectorAll('input[name="file"]:checked');
+      if (files.length === 0) {
+        alert('请至少选择一个文件！');
+        return;
+      }
+      var urls = [];
+      for (var i = 0; i < files.length; i++) {
+        urls.push(files[i].value);
+      }
+      var zip = new JSZip();
+      var count = 0;
+      urls.forEach(function(url) {
+        fetch(url)
+          .then(function(response) {
+            return response.blob();
+          })
+          .then(function(blob) {
+            count++;
+            var filename = decodeURIComponent(url.split('/').pop());
+            zip.file(filename, blob);
+            if (count === urls.length) {
+              zip.generateAsync({type:"blob"})
+                .then(function(content) {
+                  var url = URL.createObjectURL(content);
+                  var link = document.createElement('a');
+                  link.href = url;
+                  link.download = 'selected_files.zip';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  URL.revokeObjectURL(url);
+                });
+            }
+          });
+      });
+    });
+  </script>
+</body>
+</html>
