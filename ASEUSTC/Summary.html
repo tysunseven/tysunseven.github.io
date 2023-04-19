@@ -283,15 +283,19 @@
     
     <script>
       function filterFiles() {
-        const location = document.getElementById("location").value;
+        const year = document.getElementById("year").value;
         const time = document.getElementById("time").value;
+        const location = document.getElementById("location").value;
+        const attribute = document.getElementById("attribute").value;
         const duty = document.getElementById("duty").value;
         
         const files = document.getElementById("file-list").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
-          if ((location === "" || file.getAttribute("data-location") === location) &&
+          if ((year === "" || file.getAttribute("data-year") === year) &&
               (time === "" || file.getAttribute("data-time") === time) &&
+              (location === "" || file.getAttribute("data-location") === location) &&
+              (attribute === "" || file.getAttribute("data-attribute") === attribute) &&
               (duty === "" || file.getAttribute("data-duty") === duty)) {
             file.style.display = "table-row";
           } else {
