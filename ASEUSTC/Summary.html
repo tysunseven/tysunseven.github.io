@@ -518,7 +518,7 @@
   }
   if (selectedFiles.length > 0) {
     const zip = new JSZip();
-    const folder = zip.folder("下载文件");
+    const folder = zip.folder("历年领队组总结");
     const promises = [];
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
@@ -529,7 +529,7 @@
     }
     Promise.all(promises).then(() => {
       zip.generateAsync({ type: "blob" }).then(content => {
-        saveAs(content, "多个文件.zip");
+        saveAs(content, "历年领队组总结.zip");
       });
     });
   }
