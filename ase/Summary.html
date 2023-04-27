@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>筛选文件</title>
+    <style>
+      li.selected, tr.selected {
+        
+      }
+    </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  </head>
+  <body>
+    <h1>筛选文件</h1>
+    <p>维护人:孙天阳 QQ:2861392420 邮件:tysun@mail.ustc.edu.cn</p>
+    <p>有任何bug或建议请联系维护人</p>
+    
+    <table id="file-list">
+      <thead>
+        <tr>
+          <th><div>
+            <select id="year" onchange="filterFiles()">
+              <option value="">所有年份</option>
+              <option value="2016">2016年</option>
+              <option value="2017">2017年</option>
+              <option value="2018">2018年</option>
+              <option value="2019">2019年</option>
+              <option value="2020">2020年</option>
+              <option value="2021">2021年</option>
+              <option value="2022">2022年</option>
+              <option value="2023">2023年</option>
+            </select>
+          </div></th>
+
+          <th><div>
+            <select id="time" onchange="filterFiles()">
+              <option value="">所有时间</option>
+              <option value="寒假">寒假</option>
+              <option value="暑假">暑假</option>
+              <option value="五一">五一</option>
+              <option value="国庆">国庆</option>
+              <option value="清明">清明</option>
+              <option value="端午">端午</option>
+            </select>
+          </div></th>
+
+          <th><div>
+            <select id="location" onchange="filterFiles()">
+              <option value="">所有地点</option>
+              <option value="白际">白际</option>
+              <option value="龙井河">龙井河</option>
+              <option value="庐江">庐江</option>
+              <option value="霄坑">霄坑</option>
+              <option value="龙须山">龙须山</option>
+              <option value="金寨">金寨</option>
+              <option value="九华山">九华山</option>
+              <option value="鹞落坪">鹞落坪</option>
+              <option value="黔县">黔县</option>
+            </select>
+          </div></th>
+
+          <th><div>
+            <select id="attribute" onchange="filterFiles()">
+              <option value="">所有性质</option>
+              <option value="拉练">拉练</option>
+              <option value="考察">考察</option>
+              <option value="探路">探路</option>
+              <option value="干事">干事</option>
+              <option value="暑期">暑期</option>
+            </select>
+          </div>
+          </th>
+          
+
+          <th><div>
+            <select id="duty" onchange="filterFiles()">
+              <option value="">所有职责</option>
+              <option value="主领">主领</option>
+              <option value="财务副领">财务副领</option>
+              <option value="装备副领">装备副领</option>
+              <option value="行军副领">行军副领</option>
+              <option value="考察副领">考察副领</option>
+              <option value="考察报告">考察报告</option>
+              <option value="大厨">大厨</option>
+            </select>
+          </div></th>
+
+          <th>选中</th>
+        </tr>
+      </thead>
+      
+      <tbody><tr data-year="2016" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="财务副领" data-file="2016-清明-白际-拉练-财务副领.docx">
+  <td>2016</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2016" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="装备副领" data-file="2016-清明-白际-拉练-装备副领.docx">
+  <td>2016</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2016" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="主领" data-file="2016-清明-白际-拉练-主领.docx">
+  <td>2016</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2017" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="财务副领" data-file="2017-清明-白际-拉练-财务副领.docx">
+  <td>2017</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2017" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="装备副领" data-file="2017-清明-白际-拉练-装备副领.docx">
+  <td>2017</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2017" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="行军副领" data-file="2017-清明-白际-拉练-行军副领.docx">
+  <td>2017</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2017" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="考察报告" data-file="2017-清明-白际-拉练-考察报告.docx">
+  <td>2017</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>考察报告</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2017" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="主领" data-file="2017-清明-白际-拉练-主领.docx">
+  <td>2017</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="国庆" data-location="大通"  data-attribute="考察" data-duty="财务副领" data-file="2018-国庆-大通-考察-财务副领.pdf">
+  <td>2018</td>
+  <td>国庆</td>
+  <td>大通</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="国庆" data-location="大通"  data-attribute="考察" data-duty="装备副领" data-file="2018-国庆-大通-考察-装备副领.docx">
+  <td>2018</td>
+  <td>国庆</td>
+  <td>大通</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="国庆" data-location="大通"  data-attribute="考察" data-duty="行军副领" data-file="2018-国庆-大通-考察-行军副领.doc">
+  <td>2018</td>
+  <td>国庆</td>
+  <td>大通</td>
+  <td>考察</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="国庆" data-location="大通"  data-attribute="考察" data-duty="主领" data-file="2018-国庆-大通-考察-主领.docx">
+  <td>2018</td>
+  <td>国庆</td>
+  <td>大通</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="财务副领" data-file="2018-清明-白际-拉练-财务副领.doc">
+  <td>2018</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="装备副领" data-file="2018-清明-白际-拉练-装备副领.doc">
+  <td>2018</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="行军副领" data-file="2018-清明-白际-拉练-行军副领.doc">
+  <td>2018</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2018" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="主领" data-file="2018-清明-白际-拉练-主领.doc">
+  <td>2018</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="金寨"  data-attribute="考察" data-duty="财务副领" data-file="2019-清明-金寨-考察-财务副领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="金寨"  data-attribute="考察" data-duty="装备副领" data-file="2019-清明-金寨-考察-装备副领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="金寨"  data-attribute="考察" data-duty="考察副领" data-file="2019-清明-金寨-考察-考察副领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>考察副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="金寨"  data-attribute="考察" data-duty="主领" data-file="2019-清明-金寨-考察-主领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="国庆" data-location="黔县"  data-attribute="考察" data-duty="财务副领" data-file="2019-国庆-黔县-考察-财务副领.docx">
+  <td>2019</td>
+  <td>国庆</td>
+  <td>黔县</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="国庆" data-location="黔县"  data-attribute="考察" data-duty="装备副领" data-file="2019-国庆-黔县-考察-装备副领.docx">
+  <td>2019</td>
+  <td>国庆</td>
+  <td>黔县</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="国庆" data-location="黔县"  data-attribute="考察" data-duty="考察副领" data-file="2019-国庆-黔县-考察-考察副领.doc">
+  <td>2019</td>
+  <td>国庆</td>
+  <td>黔县</td>
+  <td>考察</td>
+  <td>考察副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="国庆" data-location="黔县"  data-attribute="考察" data-duty="主领" data-file="2019-国庆-黔县-考察-主领.docx">
+  <td>2019</td>
+  <td>国庆</td>
+  <td>黔县</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="五月" data-location="鹞落坪"  data-attribute="考察" data-duty="财务副领" data-file="2019-五月-鹞落坪-考察-财务副领.pdf">
+  <td>2019</td>
+  <td>五月</td>
+  <td>鹞落坪</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="五月" data-location="鹞落坪"  data-attribute="考察" data-duty="装备副领" data-file="2019-五月-鹞落坪-考察-装备副领.pdf">
+  <td>2019</td>
+  <td>五月</td>
+  <td>鹞落坪</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="五月" data-location="鹞落坪"  data-attribute="考察" data-duty="考察报告" data-file="2019-五月-鹞落坪-考察-考察报告.pdf">
+  <td>2019</td>
+  <td>五月</td>
+  <td>鹞落坪</td>
+  <td>考察</td>
+  <td>考察报告</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="五月" data-location="鹞落坪"  data-attribute="考察" data-duty="主领" data-file="2019-五月-鹞落坪-考察-主领.pdf">
+  <td>2019</td>
+  <td>五月</td>
+  <td>鹞落坪</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="财务副领" data-file="2019-清明-白际-拉练-财务副领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="装备副领" data-file="2019-清明-白际-拉练-装备副领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="行军副领" data-file="2019-清明-白际-拉练-行军副领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2019" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="主领" data-file="2019-清明-白际-拉练-主领.docx">
+  <td>2019</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="运动会" data-location="九华山"  data-attribute="考察" data-duty="财务副领" data-file="2021-运动会-九华山-考察-财务副领.docx">
+  <td>2021</td>
+  <td>运动会</td>
+  <td>九华山</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="运动会" data-location="九华山"  data-attribute="考察" data-duty="装备副领" data-file="2021-运动会-九华山-考察-装备副领.pdf">
+  <td>2021</td>
+  <td>运动会</td>
+  <td>九华山</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="运动会" data-location="九华山"  data-attribute="考察" data-duty="行军副领" data-file="2021-运动会-九华山-考察-行军副领.pdf">
+  <td>2021</td>
+  <td>运动会</td>
+  <td>九华山</td>
+  <td>考察</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="运动会" data-location="九华山"  data-attribute="考察" data-duty="考察报告" data-file="2021-运动会-九华山-考察-考察报告.pdf">
+  <td>2021</td>
+  <td>运动会</td>
+  <td>九华山</td>
+  <td>考察</td>
+  <td>考察报告</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="运动会" data-location="九华山"  data-attribute="考察" data-duty="主领" data-file="2021-运动会-九华山-考察-主领.pdf">
+  <td>2021</td>
+  <td>运动会</td>
+  <td>九华山</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="五一" data-location="金寨"  data-attribute="考察" data-duty="财务副领" data-file="2021-五一-金寨-考察-财务副领.docx">
+  <td>2021</td>
+  <td>五一</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="五一" data-location="金寨"  data-attribute="考察" data-duty="装备副领" data-file="2021-五一-金寨-考察-装备副领.docx">
+  <td>2021</td>
+  <td>五一</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="五一" data-location="金寨"  data-attribute="考察" data-duty="考察报告" data-file="2021-五一-金寨-考察-考察报告.pdf">
+  <td>2021</td>
+  <td>五一</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>考察报告</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="五一" data-location="金寨"  data-attribute="考察" data-duty="主领" data-file="2021-五一-金寨-考察-主领.docx">
+  <td>2021</td>
+  <td>五一</td>
+  <td>金寨</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="财务副领" data-file="2021-清明-白际-考察-财务副领.docx">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="装备副领" data-file="2021-清明-白际-考察-装备副领.docx">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="行军副领" data-file="2021-清明-白际-考察-行军副领.docx">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="考察副领" data-file="2021-清明-白际-考察-考察副领.pdf">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>考察副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="主领" data-file="2021-清明-白际-考察-主领.docx">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="财务副领" data-file="2021-清明-白际-拉练-财务副领.pdf">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="装备副领" data-file="2021-清明-白际-拉练-装备副领.docx">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2021" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="行军副领" data-file="2021-清明-白际-拉练-行军副领.docx">
+  <td>2021</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2022" data-time="暑假" data-location="巢湖"  data-attribute="暑期" data-duty="财务副领" data-file="2022-暑假-巢湖-暑期-财务副领.docx">
+  <td>2022</td>
+  <td>暑假</td>
+  <td>巢湖</td>
+  <td>暑期</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2022" data-time="暑假" data-location="巢湖"  data-attribute="暑期" data-duty="装备副领" data-file="2022-暑假-巢湖-暑期-装备副领.pdf">
+  <td>2022</td>
+  <td>暑假</td>
+  <td>巢湖</td>
+  <td>暑期</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2022" data-time="暑假" data-location="巢湖"  data-attribute="暑期" data-duty="考察副领" data-file="2022-暑假-巢湖-暑期-考察副领.docx">
+  <td>2022</td>
+  <td>暑假</td>
+  <td>巢湖</td>
+  <td>暑期</td>
+  <td>考察副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2022" data-time="暑假" data-location="巢湖"  data-attribute="暑期" data-duty="主领" data-file="2022-暑假-巢湖-暑期-主领.docx">
+  <td>2022</td>
+  <td>暑假</td>
+  <td>巢湖</td>
+  <td>暑期</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="财务副领" data-file="2023-清明-白际-拉练-财务副领.zip">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="装备副领" data-file="2023-清明-白际-拉练-装备副领.zip">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="行军副领" data-file="2023-清明-白际-拉练-行军副领.zip">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>行军副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="拉练" data-duty="主领" data-file="2023-清明-白际-拉练-主领.zip">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>拉练</td>
+  <td>主领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="财务副领" data-file="2023-清明-白际-考察-财务副领.pdf">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>财务副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="装备副领" data-file="2023-清明-白际-考察-装备副领.pdf">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>装备副领</td>
+  <td><input type="checkbox"></td>
+</tr><tr data-year="2023" data-time="清明" data-location="白际"  data-attribute="考察" data-duty="考察副领" data-file="2023-清明-白际-考察-考察副领.docx">
+  <td>2023</td>
+  <td>清明</td>
+  <td>白际</td>
+  <td>考察</td>
+  <td>考察副领</td>
+  <td><input type="checkbox"></td>
+</tr></tbody>
+    </table>
+    
+    <script>
+      function filterFiles() {
+        const year = document.getElementById("year").value;
+        const time = document.getElementById("time").value;
+        const location = document.getElementById("location").value;
+        const attribute = document.getElementById("attribute").value;
+        const duty = document.getElementById("duty").value;
+        
+        const files = document.getElementById("file-list").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          if ((year === "" || file.getAttribute("data-year") === year) &&
+              (time === "" || file.getAttribute("data-time") === time) &&
+              (location === "" || file.getAttribute("data-location") === location) &&
+              (attribute === "" || file.getAttribute("data-attribute") === attribute) &&
+              (duty === "" || file.getAttribute("data-duty") === duty)) {
+            file.style.display = "table-row";
+          } else {
+            file.style.display = "none";
+          }
+        }
+      }
+
+      function downloadSelected() {
+  const files = document.getElementById("file-list").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+  const selectedFiles = [];
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file.querySelector("input[type='checkbox']").checked) {
+      selectedFiles.push(file.getAttribute("data-file"));
+    }
+  }
+  if (selectedFiles.length > 0) {
+    const zip = new JSZip();
+    const folder = zip.folder("历年领队组总结");
+    const promises = [];
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const file = selectedFiles[i];
+      const promise = fetch(encodeURI(file), { responseType: "blob" })
+        .then(response => response.blob())
+        .then(blob => folder.file(decodeURI(file), blob));
+      promises.push(promise);
+    }
+    Promise.all(promises).then(() => {
+      zip.generateAsync({ type: "blob" }).then(content => {
+        saveAs(content, "历年领队组总结.zip");
+      });
+    });
+  }
+}
+function toggleSelectAll() {
+  const files = document.getElementById("file-list").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+  let isAllSelected = true;
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file.style.display === "table-row") {
+      const checkbox = file.querySelector("input[type='checkbox']");
+      if (!checkbox.checked) {
+        isAllSelected = false;
+        break;
+      }
+    }
+  }
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file.style.display === "table-row") {
+      const checkbox = file.querySelector("input[type='checkbox']");
+      checkbox.checked = !isAllSelected;
+      if (!isAllSelected) {
+        file.classList.add("selected");
+      } else {
+        file.classList.remove("selected");
+      }
+    }
+  }
+}
+
+const selectAllBtn = document.createElement("button");
+selectAllBtn.innerText = "全选/取消全选";
+selectAllBtn.addEventListener("click", toggleSelectAll);
+document.body.insertBefore(selectAllBtn, document.getElementById("file-list"));
+    </script>
+
+  <button onclick="downloadSelected()">下载选中文件</button>
+</body>
+</html>
