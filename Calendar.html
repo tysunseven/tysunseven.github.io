@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>日历</title>
-	<style>
-		table {
-			border-collapse: collapse;
-			margin: 20px auto;
-			font-size: 16px;
-			text-align: center;
-		}
-		table th {
-			background-color: #eee;
-			padding: 10px;
-		}
-		table td {
-			border: 1px solid #ccc;
-			padding: 10px;
-			width: 100px;
-			height: 100px;
-			vertical-align: top;
-		}
-		table td:hover {
-			background-color: #f5f5f5;
-		}
+    <title>月份日历表格示例</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          margin: 20px auto;
+          font-size: 16px;
+          text-align: center;
+        }
+        table th {
+          background-color: #eee;
+          padding: 10px;
+        }
+        table td {
+          border: 1px solid #ccc;
+          padding: 10px;
+          width: 100px;
+          height: 100px;
+          vertical-align: top;
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .photo {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .todo {
             background-color: #ffc107;
             font-weight: bold;
@@ -43,11 +59,31 @@
         .holiday{
           font-weight: bold;
         }
-	</style>
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            var cells = document.querySelectorAll('td');
+            cells.forEach(function(cell) {
+                cell.addEventListener('mouseover', function() {
+                    var photo = this.querySelector('.photo');
+                    if (photo) {
+                        photo.style.display = 'block';
+                    }
+                });
+
+                cell.addEventListener('mouseout', function() {
+                    var photo = this.querySelector('.photo');
+                    if (photo) {
+                        photo.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <h1>2023年3月</h1>
-	<table>
+    <table>
+        <caption>2023年3月</caption>
 		<thead>
 			<tr>
 				<th>周日</th>
@@ -107,8 +143,9 @@
 			</tr>
 		</tbody>
 	</table>
-	<h1>2023年4月</h1>
+
 	<table>
+        <caption>2023年4月</caption>
 		<thead>
 			<tr>
 				<th>周日</th>
@@ -177,8 +214,8 @@
 			</tr>
 		</tbody>
 	</table>
-	<h1>2023年5月</h1>
 	<table>
+        <caption>2023年5月</caption>
 		<thead>
 			<tr>
 				<th>周日</th>
@@ -238,8 +275,9 @@
 			</tr>
 		 </tbody>
 		</table>
-		<h1>2023年6月</h1>
+
 <table>
+    <caption>2023年6月</caption>
   <thead>
     <tr>
       <th>周日</th>
@@ -299,8 +337,9 @@
     </tr>
   </tbody>
 </table>
-<h1>2023年7月</h1>
+
 <table>
+    <caption>2023年7月</caption>
   <thead>
     <tr>
       <th>周日</th>
@@ -369,8 +408,9 @@
     </tr>
   </tbody>
 </table>
-<h1>2023年8月</h1>
+
 <table>
+    <caption>2023年8月</caption>
   <thead>
     <tr>
       <th>周日</th>
@@ -430,8 +470,9 @@
     </tr>
   </tbody>
 </table>
-<h1>2023年9月</h1>
+
 <table>
+    <caption>2023年9月</caption>
   <thead>
     <tr>
       <th>周日</th>
@@ -491,8 +532,9 @@
     </tr>
   </tbody>
 </table>
-<h1>2023年10月</h1>
+
 <table>
+    <caption>2023年10月</caption>
   <thead>
     <tr>
       <th>周日</th>
@@ -508,7 +550,9 @@
     <tr>
       <td class="travel">1<br>海原<br>家访</td>
 	  <td class="travel">2<br>海原</td>
-      <td class="travel">3<br>昆明</td>
+      <td class="travel">3<br>昆明<div class="photo">
+        <img src="life/2023-10/3K1A4437.JPG">
+    </div></td>
 	  <td class="travel">4<br>昆明</td>
 	  <td class="travel">5<br>昆明</td>
       <td>6</td>
@@ -552,8 +596,9 @@
     </tr>
   </tbody>
 </table>
-<h1>2023年11月</h1>
+
 <table>
+    <caption>2023年11月</caption>
   <thead>
     <tr>
       <th>周日</th>
@@ -613,7 +658,5 @@
     </tr>
   </tbody>
 </table>
-</body>
-</html>
 </body>
 </html>
