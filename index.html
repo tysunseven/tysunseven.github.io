@@ -49,6 +49,7 @@
 <body>
 	<header>
 		<h1>欢迎来到孙天阳的个人主页！</h1>
+		<div id="randomQuoteContainer"></div>
 	</header>
 	<nav>
 		<a href="#">首页</a>
@@ -80,4 +81,22 @@
 		<p>版权所有 &copy; 2023</p>
 	</footer>
 </body>
+<script>
+  // 定义名言列表
+  var quotes = [
+    "If you want to make a bond, you are to take the risk of tearing.    ————《The Little Prince》",
+    "名言2",
+    "名言3",
+    // 添加更多名言...
+  ];
+
+  // 随机选择一句名言
+  var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  // 获取名言容器元素
+  var quoteContainer = document.getElementById("randomQuoteContainer");
+
+  // 显示名言
+  quoteContainer.innerHTML = randomQuote;
+</script>
 </html>
