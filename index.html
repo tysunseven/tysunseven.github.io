@@ -1,99 +1,128 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>孙天阳的个人主页</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: Arial, sans-serif;
-			background-color: #f0f0f0;
-		}
-		header {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-			text-align: center;
-		}
-		h1 {
-			margin: 0;
-			font-size: 36px;
-		}
-		nav {
-			background-color: #555;
-			color: #fff;
-			padding: 10px;
-			text-align: center;
-		}
-		nav a {
-			color: #fff;
-			text-decoration: none;
-			margin-right: 20px;
-			font-size: 20px;
-		}
-		section {
-			margin: 20px;
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-		}
-		footer {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-			text-align: center;
-		}
-	</style>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="孙天阳的个人主页">
+    <meta name="keywords" content="孙天阳,Homepage">
+    <meta name="author" content="孙天阳">
+    <title>孙天阳的个人主页</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page@latest/assets/css/onlinewebfonts.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page@latest/assets/css/vno.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page@latest/assets/css/iconfont.css">
+    <link rel="apple-touch-icon" href="https://unpkg.com/dmego-home-page@latest/apple-touch-icon.png">
+    <link rel="icon" href="https://unpkg.com/dmego-home-page@latest/favicon.ico">
 </head>
+
 <body>
-	<header>
-		<h1>欢迎来到孙天阳的个人主页！</h1>
-		<div id="randomQuoteContainer"></div>
-	</header>
-	<nav>
-		<a href="#">首页</a>
-		<a href="./note/index.html">笔记</a>
-		<a href="./video/index.html">录像</a>
-		<a href="donate.html">打赏</a>
-	</nav>
-	<section>
-		<h2>经历</h2>
-		<ul>
-			<li>2019.9-2023.6,中国科学技术大学数学系</li>
-			<li>2023.8-2024.6,宁夏海原支教</li>
-		</ul>
-		<h2>联系方式</h2>
-		<ul>
-			<li>QQ:2861392420</li>
-			<li>邮箱:tysun@mail.ustc.edu.cn</li>
-			<li>交流群:917808436（交流关于主页的问题，以及关于笔记、录像的数学问题）</li>
-		</ul>
-		<h2>最近更新</h2>
-		<ul>
-			<li>新增：2023年秋微分流形（王作勤）</li>
-		</ul>
-	</section>
-	<footer>
-		<p>版权所有 &copy; 2023</p>
-	</footer>
+    <span class="mobile btn-mobile-menu">
+        <i class="social iconfont icon-list btn-mobile-menu__icon"></i>
+        <i class="social iconfont icon-angleup btn-mobile-close__icon hidden"></i>
+    </span>
+    <header id="panel" class="panel-cover">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content">
+                    <div class="ih-item circle effect right_to_left">            
+                        <a href="#" title="" class="blog-button">
+                            <div class="img"><img src="assets/img/logo3.jpg" alt="img" class="js-avatar iUp profilepic"></div>
+                            <div class="info iUp">
+                                <div class="info-back">
+                                    <h2> 
+                                        
+                                            Persist
+                                        
+                                    </h2>
+                                    <p>
+                                        
+                                            2024 · 转向
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <h1 class="panel-cover__title panel-title iUp">
+                        <a href="#" title="孙天阳的个人主页">七七</a>
+                    </h1>
+                    <!-- <p class="panel-cover__subtitle panel-subtitle iUp">Code Create Life</p> -->
+                    <hr class="panel-cover__divider iUp" />
+                    <p id="description" class="panel-cover__description iUp">如何得与凉风约, 不共尘沙一并来!
+                        <br/>
+                        <strong>-「中牟道中」</strong>
+                    </p>
+                    <div class="navigation-wrapper iUp">
+                        <div>
+                            <nav class="cover-navigation cover-navigation--primary">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="/" class="blog-button">关于</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="/./note/index.html" class="blog-button" target="_blank">笔记</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="/./video/index.html" class="blog-button" target="_blank">录像</a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="/./donate.html" class="blog-button" target="_blank">打赏</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--<div class="iUp">
+                            <nav class="cover-navigation navigation--social">
+                                <ul class="navigation">
+                                    <li class="navigation__item">
+                                        <a href="https://github.com/tysunseven" title="github" target="_blank">
+                                            <i class='social iconfont icon-github'></i>
+                                            <span class="label">github</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                        <a href="http://www.cnblogs.com/dmego/" title="cnblogs" target="_blank">
+                                            <i class='social iconfont icon-cnblogs'></i>
+                                            <span class="label">cnblogs</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="navigation__item">
+                                        <a href="https://www.zhihu.com/people/dmego/" title="zhihu" target="_blank">
+                                            <i class='social iconfont icon-zhihu'></i>
+                                            <span class="label">zhihu</span>
+                                        </a>
+                                    </li>
+                                    <li class="navigation__item">
+                                         加密的邮箱地址, 请自行修改, 或者改用下方的明文方式 
+                                        <a href="javascript:decryptEmail('ZG1lYWdvQGdtYWlsLmNvbQ==');" title="email">
+                                         <a href="test@test.com" title="email"> 
+                                            <i class='social iconfont icon-email'></i>
+                                            <span class="label">email</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay cover-slate"></div>
+        </div>
+        <!-- <div class="beian iUp">
+            <a class="icp" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">XXX</a>
+            <a class="gwab" href="http://www.beian.gov.cn/portal/recordQuery" target="_blank">XXX</a>
+        </div> -->
+        <div class="remark iUp">
+            <p class="power">Powered By 
+                <a href="https://github.com/features/actions" target="_blank"> GitHub Actions </a> And 
+                <a href="https://hitokoto.cn/" target="_blank"> Hitokoto </a>
+            </p>
+        </div>
+    </header>
+    <script type="text/javascript" src="https://unpkg.com/dmego-home-page@latest/assets/js/main.js"></script>
+    <script type="text/javascript" src="./assets/json/images.json?cb=getBingImages"></script>
 </body>
-<script>
-  // 定义名言列表
-  var quotes = [
-    "If you want to make a bond, you are to take the risk of tearing.    ————《The Little Prince》",
-    "分析是极限的艺术  ——任广斌",
-    "Now this is not the end.It is not even the beginning of the end.But it is,perhaps,the end of the beginning.  ——Churchill",
-    // 添加更多名言...
-  ];
-
-  // 随机选择一句名言
-  var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-  // 获取名言容器元素
-  var quoteContainer = document.getElementById("randomQuoteContainer");
-
-  // 显示名言
-  quoteContainer.innerHTML = randomQuote;
-</script>
 </html>
