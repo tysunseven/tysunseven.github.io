@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本地视频预览</title>
+  <!-- 引入Video.js的CSS文件 -->
+  <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+  <!-- 引入Video.js的JS文件 -->
+  <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+</head>
+<body>
+  <div>
+    <!-- 视频播放器 -->
+    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
+      <!-- 本地视频文件 -->
+      <source src="1.mp4" type="video/mp4">
+      <!-- 如果需要兼容不同格式的视频，可以添加其他<source>标签 -->
+      <!-- <source src="your-video-file.webm" type="video/webm"> -->
+      <!-- <source src="your-video-file.ogv" type="video/ogg"> -->
+      <!-- 播放器不支持HTML5时显示的备用信息 -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    // 初始化视频播放器
+    var player = videojs('my-video');
+  </script>
+</body>
+</html>
