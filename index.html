@@ -15,6 +15,34 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page@latest/assets/css/iconfont.css">
     <link rel="apple-touch-icon" href="https://unpkg.com/dmego-home-page@latest/apple-touch-icon.png">
     <link rel="icon" href="https://unpkg.com/dmego-home-page@latest/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        .new-content {
+            font-family: 'Open Sans', sans-serif;
+        font-size: smaller; /* 字号比正文小 */
+        position: absolute; /* 绝对定位，相对于父元素定位 */
+        top: 0;
+        right: 0;
+        transform: translate(40%, -40%); /* 将元素向右上角偏移 */
+        border-radius: 50%; /* 边框为圆形 */
+        padding: 2px 5px; /* 内边距 */
+         /* 设置文字的背景渐变 */
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+
+/* 确保渐变只应用于文字本身 */
+-webkit-background-clip: text;
+background-clip: text;
+
+/* 将文字颜色设置为透明，以显示背景的渐变 */
+-webkit-text-fill-color: transparent; /* 对于支持Webkit的浏览器 */
+color: transparent; /* 标准方法 */
+    
+    }
+
+        .navigation__item {
+        position: relative; /* 为了绝对定位的子元素服务 */
+        }
+    </style>
 </head>
 
 <body>
@@ -66,6 +94,7 @@
                                     </li>
                                     <li class="navigation__item">
                                         <a href="/./video/index.html" class="blog-button" target="_blank">录像</a>
+                                        <span class="new-content">New!</span>
                                     </li>
                                     <li class="navigation__item">
                                         <a href="/./donate.html" class="blog-button" target="_blank">打赏</a>
