@@ -1,24 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>关于</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孙天阳的个人页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+            color: #333;
+        }
+        section {
+            margin: 40px auto;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 经历部分 - 卡片布局 */
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .timeline .card {
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .timeline .card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        /* 荣誉部分 - 图标和文字 */
+        .honors {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+        }
+        .honors li {
+            text-align: center;
+            flex: 1 1 200px;
+        }
+        .honors li i {
+            font-size: 2.5em;
+            color: #007BFF;
+        }
+        .honors li span {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        /* 文章部分 - 简介展示 */
+        .articles {
+            list-style-type: none;
+            padding: 0;
+        }
+        .articles li {
+            background-color: #fafafa;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .articles a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .articles a:hover {
+            text-decoration: underline;
+        }
+        .articles .excerpt {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        /* 照片部分 - 图片轮播和网格布局 */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .photo-grid img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* 社交账号部分 - 按钮布局 */
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social a {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+        .social a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
 
-<h2>经历</h2>
-<ul>
-    <li>2019.9-2023.6, 中国科学技术大学数学系</li>
-    <li>2023.8-2024.6, 宁夏海原支教</li>
-</ul>
+    <header>
+        <h1>孙天阳的个人页面</h1>
+    </header>
 
-<h2>联系方式</h2>
-<ul>
-    <li>QQ: 2861392420</li>
-    <li>邮箱: tysun@mail.ustc.edu.cn</li>
-    <li>交流群: 917808436（交流关于主页的问题，以及关于笔记、录像的数学问题）</li>
-</ul>
+    <nav>
+        <a href="#experience">经历</a>
+        <a href="#honors">荣誉</a>
+        <a href="#articles">文章</a>
+        <a href="#photos">照片</a>
+        <a href="#social">社交账号</a>
+    </nav>
+
+    <section id="experience">
+        <h2>经历</h2>
+        <div class="timeline">
+            <div class="card">
+                <h3>2023-2024: 研究生</h3>
+                <p>计算数学专业，科学与技术大学，安徽合肥</p>
+            </div>
+            <div class="card">
+                <h3>2022-2023: 本科</h3>
+                <p>数学科学专业，科学与技术大学，安徽合肥</p>
+            </div>
+            <div class="card">
+                <h3>2021-2022: 教学志愿者</h3>
+                <p>宁夏海原</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="honors">
+        <h2>荣誉</h2>
+        <ul class="honors">
+            <li>
+                <i class="fas fa-trophy"></i>
+                <span>2023年获得优秀志愿者奖</span>
+            </li>
+            <li>
+                <i class="fas fa-medal"></i>
+                <span>2022年获得校级奖学金</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="articles">
+        <h2>发表的文章</h2>
+        <ul class="articles">
+            <li>
+                <a href="https://tysunseven.github.io/article1" target="_blank">文章标题1</a>
+                <div class="excerpt">简短介绍文章内容...</div>
+                <a href="https://tysunseven.github.io/article1" target="_blank">阅读更多</a>
+            </li>
+            <li>
+                <a href="https://tysunseven.github.io/article2" target="_blank">文章标题2</a>
+                <div class="excerpt">简短介绍文章内容...</div>
+                <a href="https://tysunseven.github.io/article2" target="_blank">阅读更多</a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="photos">
+        <h2>照片</h2>
+        <div class="photo-grid">
+            <img src="photo1.jpg" alt="照片1">
+            <img src="photo2.jpg" alt="照片2">
+            <img src="photo3.jpg" alt="照片3">
+        </div>
+    </section>
+
+    <section id="social">
+        <h2>社交账号</h2>
+        <div class="social">
+            <a href="https://github.com/tysunseven" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/tysunseven" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/tysunseven" target="_blank">Twitter</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 孙天阳</p>
+    </footer>
+
+    <!-- FontAwesome icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 </body>
 </html>

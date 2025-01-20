@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .photo-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .photo {
+            width: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .photo img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo:hover img {
+            transform: scale(1.05);
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="photo-group">
+    <div class="photo">
+        <img src="2023/七彩假期.jpg">
+        <p class="caption">2023年8月5日七彩假期</p>
+    </div>
+    <!-- Add more photos with captions as needed -->
+</div>
+<div class="photo-group">
+    <div class="photo">
+        <img src="2024/端午龙须山拉练.jpg">
+        <p class="caption">2024年端午龙须山拉练</p>
+    </div>
+    <!-- Add more photos with captions as needed -->
+</div>
+
+</body>
+</html>
