@@ -21,47 +21,83 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
             gap: 20px;
             padding: 20px;
+            margin-bottom: 40px;
+        }
+        .group-caption {
+            width: 100%;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #444;
+            margin: 15px 0;
+            padding: 10px 0;
+            border-bottom: 2px solid #eee;
         }
         .photo {
-            width: 300px;
+            --base-size: 300px;
+            --scale: 1;
+            
+            width: calc(var(--base-size) * var(--scale));
+            height: calc(var(--base-size) * var(--scale));
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            transition: all 0.3s ease-in-out;
+            margin: calc((var(--base-size) * (var(--scale) - 1)) / 2);
+        }
+        .photo[data-scale] {
+            transform: scale(calc(var(--scale-factor)));
+            transform-origin: center;
         }
         .photo img {
             width: 100%;
-            height: auto;
-            transition: transform 0.3s ease-in-out;
+            height: 100%;
+            object-fit: contain;
+            transition: inherit;
         }
         .photo:hover img {
             transform: scale(1.05);
         }
-        .caption {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #666;
+        /* 示例缩放配置 */
+        .photo[data-scale="1.2"] {
+            --scale: 1.2;
+        }
+        .photo[data-scale="1.5"] {
+            --scale: 1.5;
         }
     </style>
 </head>
 <body>
-
-<div class="photo-group">
-    <div class="photo">
-        <img src="2023/七彩假期.jpg">
-        <p class="caption">2023年8月5日七彩假期</p>
+    <!-- 2022年组 -->
+    <div class="photo-group">
+        <h2 class="group-caption">2022年新疆米兰</h2>
+        <div class="photo">
+            <img src="2022/IMG_20220809_215816.jpg">
+        </div>
+        <div class="photo" data-scale="1.2">
+            <img src="2022/mmexport1659832311159.jpg">
+        </div>
     </div>
-    <!-- Add more photos with captions as needed -->
-</div>
-<div class="photo-group">
-    <div class="photo">
-        <img src="2024/端午龙须山拉练.jpg">
-        <p class="caption">2024年端午龙须山拉练</p>
-    </div>
-    <!-- Add more photos with captions as needed -->
-</div>
 
+    <!-- 2023年组 -->
+    <div class="photo-group">
+        <h2 class="group-caption">2023年8月5日七彩假期</h2>
+        <div class="photo" data-scale="1.2">
+            <img src="2023/七彩假期.jpg">
+        </div>
+    </div>
+
+    <!-- 2024年组 -->
+    <div class="photo-group">
+        <h2 class="group-caption">2024年端午龙须山拉练</h2>
+        <div class="photo" data-scale="1.2">
+            <img src="2024/端午龙须山拉练.jpg">
+        </div>
+    </div>
 </body>
 </html>
