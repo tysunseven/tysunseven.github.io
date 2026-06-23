@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>报告</title>
+    <!-- MathJax：用于渲染摘要中的数学公式（仅按需，零构建） -->
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.65;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 24px 18px 60px;
+            color: #222;
+        }
+        .indented { text-indent: 2em; color: #444; }
+
+        /* 会议/活动分组标题 */
+        .event {
+            margin: 34px 0 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .event h2 { font-size: 1.15em; margin: 0; }
+        .event .date { color: #888; font-size: 0.9em; }
+        .event .folder { margin-left: auto; font-size: 0.88em; white-space: nowrap; }
+
+        /* 单篇报告 */
+        .talk { border-bottom: 1px solid #eee; }
+        /* 行：点击非标题处展开/收起摘要 */
+        .talk .row {
+            margin: 0;
+            padding: 10px 6px 10px 26px;
+            position: relative;
+            cursor: pointer;
+        }
+        .talk .row:hover { background: #fafafa; }
+        .talk .row .tog::before {
+            content: "▸";
+            position: absolute;
+            left: 8px;
+            color: #aaa;
+        }
+        .talk.open .row .tog::before { content: "▾"; color: #666; }
+        .talk .d { color: #999; font-size: 0.85em; margin-right: 4px; }
+        .talk .who { font-weight: 600; }
+        .talk .org { color: #888; font-weight: 400; font-size: 0.9em; }
+        /* 标题即视频链接 */
+        .talk .title { color: #1a4e8a; text-decoration: none; }
+        .talk .title:hover { text-decoration: underline; }
+
+        /* 摘要：默认收起 */
+        .talk .abstract { display: none; }
+        .talk.open .abstract {
+            display: block;
+            margin: 0 6px 14px 26px;
+            padding: 10px 14px;
+            background: #f7f9fb;
+            border-left: 3px solid #cdd9e5;
+            border-radius: 3px;
+            font-size: 0.95em;
+            color: #333;
+        }
+        a { color: #1a4e8a; }
+    </style>
+</head>
+<body>
+    <!-- ===== 非线性偏微分方程新进展会议 ===== -->
+    <div class="event">
+        <h2>非线性偏微分方程新进展会议</h2>
+        <span class="date">2026 年 5 月 8–9 日 · 中国科学技术大学</span>
+        <span class="folder"><a href="https://lusun.com/f/txqP7WfNLpw" target="_blank">整组观看 ↗</a></span>
+    </div>
+
+    <div class="talk">
+        <p class="row" onclick="this.closest('.talk').classList.toggle('open')">
+            <span class="tog"></span><span class="d">05.08</span> · <span class="who">朱熹平</span><span class="org">（中山大学）</span> · <a class="title" href="https://lusun.com/v/RowBlAxvjyo" target="_blank" onclick="event.stopPropagation()">Lipschitz regularity of harmonic map heat flows into CAT(0) spaces</a>
+        </p>
+        <div class="abstract">
+            <p>In this talk I report my joint work with Hui-Chun Zhang to give a complete answer to the question. We show that every weak solution of the harmonic map heat flow into CAT(0) spaces is Lipschitz continuous in both space and time. Very recently, Lin and Wang gave an alternative proof.</p>
+        </div>
+    </div>
+
+    <div class="talk">
+        <p class="row" onclick="this.closest('.talk').classList.toggle('open')">
+            <span class="tog"></span><span class="d">05.08</span> · <span class="who">孙玉华</span><span class="org">（南开大学）</span> · <a class="title" href="https://lusun.com/v/HpE2XMCExMz" target="_blank" onclick="event.stopPropagation()">Mixed-norm parabolicity and Liouville properties for products of Riemannian manifolds</a>
+        </p>
+        <div class="abstract">
+            <p>Let $M=M_1\times M_2$ be a product of geodesically complete Riemannian manifolds, and let $p_1,p_2\in(1,\infty)$. We introduce a mixed-norm capacity associated with the Green operator on $M$ and the mixed Lebesgue space $L^{p_2}(L^{p_1})(M)$. This capacity leads to notions of $L^{p_2}(L^{p_1})$-parabolicity and the $L^{p_2}(L^{p_1})$-Liouville property for product manifolds, where $1/p_i+1/p_i'=1$ for $i=1,2$. We establish equivalent characterizations of this mixed capacity and prove the existence of capacitary measures represented by a nonlinear mixed potential. Our main result is a mixed-norm analogue of the equivalence between parabolicity, Green-kernel integrability, and the Liouville property: $M$ is $L^{p_2}(L^{p_1})$-parabolic if and only if, for some, equivalently for every, $x\in M$, the restriction $G^M(x;\cdot)\mathbf{1}_{M\setminus B(x,r)}$ does not belong to $L^{p_2'}(L^{p_1'})(M)$; this is further equivalent to the $L^{p_2'}(L^{p_1'})$-Liouville property. Under a radial Harnack-type inequality—for example, under Li–Yau heat kernel estimates, and hence for products with nonnegative Ricci curvature—these conditions are also equivalent to the divergence of the nonlinear mixed potential $\mathcal{G}_{p_1,p_2}(f)$ for every nonzero, nonnegative $f\in C_c^\infty(M)$. Finally, we derive explicit volume-growth criteria and apply them to Euclidean products, obtaining a sharp mixed-norm Liouville criterion for $\mathbb{R}^{n_1}\times\mathbb{R}^{n_2}$.</p>
+        </div>
+    </div>
+
+    <div class="talk">
+        <p class="row" onclick="this.closest('.talk').classList.toggle('open')">
+            <span class="tog"></span><span class="d">05.08</span> · <span class="who">王克磊</span><span class="org">（武汉大学）</span> · <a class="title" href="https://lusun.com/v/VI7iyM6K7qD" target="_blank" onclick="event.stopPropagation()">Classification for entire solutions to the parabolic Allen-Cahn equation</a>
+        </p>
+        <div class="abstract">
+            <p>In this talk, I will discuss classification problems inspired by this line of inquiry, but extended to entire solutions of the parabolic Allen-Cahn equation. Specifically, I will present a recent joint work with my current PhD student, Lubo Wang, demonstrating that if the blow-down limit of an entire solution is a shrinking sphere, then the solution is radially symmetric in the spatial directions.</p>
+        </div>
+    </div>
+
+    <div class="talk">
+        <p class="row" onclick="this.closest('.talk').classList.toggle('open')">
+            <span class="tog"></span><span class="d">05.09</span> · <span class="who">黄耿耿</span><span class="org">（复旦大学）</span> · <a class="title" href="https://lusun.com/v/ohu7Td8KUNj" target="_blank" onclick="event.stopPropagation()">Monge-Ampère equation with Guillemin boundary condition</a>
+        </p>
+        <div class="abstract">
+            <p>We will talk about the following boundary value problem of Monge-Ampère equation. Under suitable conditions, we will show the problem is solvable. This is a joint work with Weiming Shen.</p>
+        </div>
+    </div>
+
+    <div class="talk">
+        <p class="row" onclick="this.closest('.talk').classList.toggle('open')">
+            <span class="tog"></span><span class="d">05.09</span> · <span class="who">王征平</span><span class="org">（武汉理工大学）</span> · <a class="title" href="https://lusun.com/v/20cmSFrl8qq" target="_blank" onclick="event.stopPropagation()">Ground state for a logarithmic Schrödinger-Poisson system</a>
+        </p>
+        <div class="abstract">
+            <p>In this talk, we give some recent results on the three dimensional logarithmic Schrödinger-Poisson system with coercive potential. Under some technical conditions on the potential, by using variational methods we investigate the existence, asymptotic behavior and radial symmetry of ground state.</p>
+        </div>
+    </div>
+
+</body>
+</html>
